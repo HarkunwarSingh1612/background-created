@@ -5,10 +5,34 @@
 <script src="./p5.play.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDBGdqASfqduViU0ZKPwk1CrBMzUHgXD_Y",
+    authDomain: "hurdles-race-8-6-21.firebaseapp.com",
+    databaseURL: "https://hurdles-race-8-6-21-default-rtdb.firebaseio.com",
+    projectId: "hurdles-race-8-6-21",
+    storageBucket: "hurdles-race-8-6-21.appspot.com",
+    messagingSenderId: "931225145429",
+    appId: "1:931225145429:web:fce200dbfc40fb8e2084dc"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 
   </head>
   <body>
       <script src="sketch.js"></script>
+      <script src="Form.js"></script>
+      <script src="Game.js"></script>
+      <script src="Runner.js"></script>
   
 
 </body></html>
