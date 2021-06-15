@@ -1,6 +1,6 @@
 class Game{
     constructor(){
-
+    
     }
     getState(){
         var State=database.ref('gameState');
@@ -43,9 +43,10 @@ class Game{
         if(allPlayers !== undefined){
           background("brown");
           var display_position = 130;
-         //image(trackImg, 0, -displayHeight*4, displayWidth, displayHeight*5);
+         image(trackImg, 0, -displayHeight*4, displayWidth, displayHeight*5);
         var index=0;
         var x=175;
+        this.Obstacles();
         var y;
           for(var plr in allPlayers){
             index=index+1;
@@ -60,12 +61,17 @@ class Game{
               allrunners[index-1].shapeColor="red";
               camera.position.x=displayWidth/2;
               camera.position.y=allrunners[index-1].y;
-        
+              if(allrunners[index-1].isTouching(obstacleGroup)){
+                runSpeed=5;
+               
+              }
+              
           }
         }
       }
         if(keyIsDown(UP_ARROW) && runner.index !== null){
-          runner.distance +=10
+          //runner.distance +=10
+          this.MovingSpeed();
           runner.update();
         }
         if(runner.distance >3700){
@@ -76,6 +82,18 @@ class Game{
         }
         drawSprites();
       }
-    
+       Obstacles(){
+         if(frameCount%250===0){
+           for(var i=400;i<=1000;i+=200){
+            var obstacle=createSprite(i, height-runner.distance-350, 20, 20);
+            obstacle.velocityY=2;
+            obstacleGroup.add(obstacle);
+           }
+         
+        }
+      }
+      MovingSpeed(){
+        runner.distance+=runSpeed;
+      }
     
 }

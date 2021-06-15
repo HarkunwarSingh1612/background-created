@@ -1,7 +1,8 @@
 var form,game,runner,canvas,database,gameState=0,playerCount,runner1,runner2,runner3,runner4;
 var allrunners;
 var allPlayers;
-var distance = 0, obstacle, obstacleGroup,track,trackImg;
+var distance = 0, obstacle, obstacleGroup,track,trackImg, runSpeed=10;
+
 
 function preload(){
   trackImg=loadImage("track.jpg")
@@ -16,7 +17,7 @@ function setup() {
     game.getState();
     game.start();
   
-  
+  obstacleGroup=new Group();
 }
 
 function draw() {
