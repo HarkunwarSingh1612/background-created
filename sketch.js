@@ -1,11 +1,14 @@
-var form,game,runner,canvas,database,gameState=0,playerCount,runner1,runner2,runner3,runner4;
+var form,game,runner,canvas,database,gameState=0,playerCount,runner1,runner2,runner3,runner4, runner1Img, runner1Img2;
 var allrunners;
 var allPlayers;
-var distance = 0, obstacle, obstacleGroup,track,trackImg, runSpeed=10;
+var distance = 0, obstacle, obstacleGroup,track,trackImg, runSpeed=10, obstaclesImg;
 
 
 function preload(){
-  trackImg=loadImage("track.jpg")
+  trackImg=loadImage("track.png")
+  obstaclesImg=loadImage("hurdles.png")
+  runner1Img=loadAnimation("running2.jpg", "running3.jpg", "running4.jpg", "running5.jpg", "running6.jpg", "running7.jpg", "running8.jpg", "running9.jpg")
+  runner1Img2=loadAnimation("running2.jpg");
 }
 
 function setup() {

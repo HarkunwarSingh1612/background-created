@@ -25,7 +25,7 @@ class Game{
       form.display();
     }
     runner1=createSprite(100, 200);
-    //car1.addImage("car1",car1Img);
+    runner1.addAnimation("standing",runner1Img2);
     runner2=createSprite(300, 200);
     //car2.addImage("car2",car2Img);
     runner3=createSprite(500, 200);
@@ -35,6 +35,7 @@ class Game{
     allrunners=[runner1, runner2, runner3, runner4]
     }
     play(){
+      
         form.hide();
         textSize(30);
         text("Game Start", 120, 100)
@@ -73,6 +74,12 @@ class Game{
           //runner.distance +=10
           this.MovingSpeed();
           runner.update();
+          
+        }
+        
+        else{
+          //runner.distance +=10
+          runner1.changeAnimation("standing",runner1Img2);
         }
         if(runner.distance >3700){
           gameState=2;
@@ -87,6 +94,8 @@ class Game{
            for(var i=400;i<=1000;i+=200){
             var obstacle=createSprite(i, height-runner.distance-350, 20, 20);
             obstacle.velocityY=2;
+            obstacle.addImage(obstaclesImg);
+            obstacle.scale=0.2;
             obstacleGroup.add(obstacle);
            }
          
@@ -94,6 +103,18 @@ class Game{
       }
       MovingSpeed(){
         runner.distance+=runSpeed;
+        runner1.changeAnimation("running",runner1Img);
       }
     
 }
+/*function keyReleased(){
+  if(keyCode === 72){
+    runner1.changeAnimation("standing",runner1Img2);
+  }
+}
+
+function keyPressed(){
+  if(keyCode === 72){
+    runner1.changeAnimation("running",runner1Img);
+  }
+}*/
